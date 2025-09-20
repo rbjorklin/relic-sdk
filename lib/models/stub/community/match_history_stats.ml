@@ -10,6 +10,7 @@ type t =
   ; completiontime : int
   ; observertotal : int
   ; match_history_report_results : Match_history_report_results.t list
+  ; match_history_member : Match_history_member.t list
   }
 
 let to_json m =
@@ -26,6 +27,7 @@ let to_json m =
     ; "observertotal", `Int m.observertotal
     ; ( "matchhistoryreportresults"
       , `List (List.map Match_history_report_results.to_json m.match_history_report_results) )
+    ; "matchhistorymember", `List (List.map Match_history_member.to_json m.match_history_member)
     ]
 ;;
 
@@ -43,5 +45,6 @@ let from_json json =
   ; observertotal = json |> member "observertotal" |> to_int
   ; match_history_report_results =
       json |> member "matchhistoryreportresults" |> to_list |> List.map Match_history_report_results.from_json
+  ; match_history_member = json |> member "matchhistorymember" |> to_list |> List.map Match_history_member.from_json
   }
 ;;
