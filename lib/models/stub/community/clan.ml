@@ -7,7 +7,7 @@ type t =
   ; icon : string
   ; membercount : int
   ; joinpolicy : Join_policy.t
-      (* TODO I have no idea what enum this could be - I'm guessing something like open vs invite only. It likely
+    (* TODO I have no idea what enum this could be - I'm guessing something like open vs invite only. It likely
          goes from 0-2 according to the sparse documentation *)
   ; metadata : string
   ; messageoftheday : string

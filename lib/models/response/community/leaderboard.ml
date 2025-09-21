@@ -4,7 +4,7 @@ type t =
   ; match_types : Stub.Community.Match_type.t list
   ; races : Stub.Community.Race.t list
   ; leaderboard_regions : Stub.Community.Leaderboard_region.t list
-  (*; factions : string list (* Theres no docs for this so i have to disable it for now. It's been empty for every
+    (*; factions : string list (* Theres no docs for this so i have to disable it for now. It's been empty for every
     game. *) *)
   }
 

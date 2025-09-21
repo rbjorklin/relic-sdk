@@ -7,7 +7,7 @@ let to_json r =
   let user_achievement_map_json =
     List.map
       (fun (user_id, achievements) ->
-        `Assoc [ user_id, `List (List.map Stub.Community.Achievement_attainment.to_json achievements) ])
+         `Assoc [ user_id, `List (List.map Stub.Community.Achievement_attainment.to_json achievements) ])
       r.user_achievements_map
   in
   `Assoc
@@ -23,10 +23,10 @@ let from_json json =
     |> to_list
     |> List.fold_left
          (fun acc user_achievement_json ->
-           match user_achievement_json with
-           | `Assoc [ (user_id, `List achievements) ] ->
-             (user_id, List.map Stub.Community.Achievement_attainment.from_json achievements) :: acc
-           | _ -> acc)
+            match user_achievement_json with
+            | `Assoc [ (user_id, `List achievements) ] ->
+              (user_id, List.map Stub.Community.Achievement_attainment.from_json achievements) :: acc
+            | _ -> acc)
          []
   in
   { result; user_achievements_map }

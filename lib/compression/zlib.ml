@@ -1,5 +1,5 @@
 (*
- * Copyright (c) 2015, Christopher Zimmermann
+   * Copyright (c) 2015, Christopher Zimmermann
  *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -12,7 +12,7 @@
  * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION
  * OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
  * CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
- *)
+*)
 
 type status =
   | Ok (* 0 *)
@@ -130,12 +130,12 @@ let create_deflate, create_inflate =
     }
   in
   let create_deflate
-    ?(level = -1)
-    ?(algo = Deflated)
-    ?(window_bits = 15)
-    ?(memory = 8)
-    ?(strategy = Default_strategy)
-    ()
+        ?(level = -1)
+        ?(algo = Deflated)
+        ?(window_bits = 15)
+        ?(memory = 8)
+        ?(strategy = Default_strategy)
+        ()
     =
     wrap (deflate_init ~level ~algo ~window_bits ~memory ~strategy)
   in

@@ -1,5 +1,5 @@
 (*
- * Copyright (c) 2015, Christopher Zimmermann
+   * Copyright (c) 2015, Christopher Zimmermann
  *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -12,7 +12,7 @@
  * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION
  * OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
  * CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
- *)
+*)
 
 (** Bindings to the zlib compression library providing deflate compression with
     or without zlib or gzip headers.
@@ -88,7 +88,7 @@ type 'a t =
   ; mutable in_total : int (** Length of input data processed so far *)
   ; mutable out_total : int (** Length of output data processed so far *)
   ; mutable data_type : int
-  (** For deflate streams a guess about the type of data is returned here: [0]
+    (** For deflate streams a guess about the type of data is returned here: [0]
       for binary data, [1] for text and [2] for unknown.
 
       For inflate streams the number of unused bits in the last byte taken
@@ -97,7 +97,7 @@ type 'a t =
       end-of-block code [128] is added.
       If {!flate} is currentry decoding the last block [64] is added. *)
   ; mutable cksum : int32
-  (** The checksum of the decompressed data produced resp. consumed so far.
+    (** The checksum of the decompressed data produced resp. consumed so far.
       When {!flate} returns {!status.Need_dict} the adler32 checksum of the required
       dictionary is returned here instead. *)
   }
@@ -107,16 +107,17 @@ type header =
   { text : bool (** Compressed data believed to be text? *)
   ; mtime : int32 (** mtime of compressed file. Set to zero if unknown. *)
   ; os : int
-  (** filesystem type on which the compressed file was stored.
+    (** filesystem type on which the compressed file was stored.
       See {{:https://www.ietf.org/rfc/rfc1952.txt} RFC1952} for possible values. *)
   ; xflags : int
-  (** Extra flags according to {{:https://www.ietf.org/rfc/rfc1952.txt} RFC1952}. For deflate compression method the
+    (** Extra flags according to {{:https://www.ietf.org/rfc/rfc1952.txt} RFC1952}. For deflate compression method the
       compression level is stored here. *)
   ; extra : string option (** Extra header field according to {{:https://www.ietf.org/rfc/rfc1952.txt} RFC1952}. *)
-  ; name : string option (** Original file name of the compressed file translated to ISO 8859-1
+  ; name : string option
+    (** Original file name of the compressed file translated to ISO 8859-1
                              (LATIN-1). *)
   ; comment : string option
-  (** File comment. According to {{:https://www.ietf.org/rfc/rfc1952.txt} RFC1952} only ISO 8859-1 (LATIN-1) characters
+    (** File comment. According to {{:https://www.ietf.org/rfc/rfc1952.txt} RFC1952} only ISO 8859-1 (LATIN-1) characters
       are allowed. Linebreak is a single linefeed. *)
   }
 

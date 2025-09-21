@@ -10,7 +10,7 @@ let to_json r =
       , `List
           (List.map
              (fun (profile_id, items) ->
-               `Assoc [ profile_id, `List (List.map Stub.Community.Inventory.to_json items) ])
+                `Assoc [ profile_id, `List (List.map Stub.Community.Inventory.to_json items) ])
              r.item_instances_by_profile_id) )
     ]
 ;;
