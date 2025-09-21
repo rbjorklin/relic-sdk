@@ -14,9 +14,9 @@ jobs:
         lfs: true
 
     - name: Setup ocaml
-      uses: avsm/setup-ocaml@v2
+      uses: avsm/setup-ocaml@v3
       with:
-        ocaml-compiler: '4.14.0'
+        ocaml-compiler: '4.14.2'
 
     - name: Check compliance
       run: |
@@ -44,5 +44,3 @@ jobs:
         docker build -t cr.kruhlmann.dev/aoecenter/docs/relic-sdk:latest -f doc/Dockerfile .
         docker push cr.kruhlmann.dev/aoecenter/docs/relic-sdk
       if: github.ref == 'refs/heads/master'
-
-
